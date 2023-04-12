@@ -61,13 +61,27 @@ useEffect(()=>{
         for (let i = 0; i < initial.length; i++){
             for (let p = 0; p < initial[i].produce.length; p++)
             if (initial[i].produce[p].category == formValues.query.toUpperCase()){
-                // console.log(initial[i].produce[p].category)
-                // console.log(initial[i])
-                categoryArray.push(initial[i].produce[p])
+                let double = false;
+                for (let d = 0; d < categoryArray.length; d++){
+                    if (categoryArray[d].name != initial[i].produce[p].name || categoryArray.length == 0){
+                        double=false;
+                    }
+                    else {
+                        double = true;
+                        d = categoryArray.length;
+                    }
+                } 
+                if (double == false){
+                    categoryArray.push(initial[i].produce[p])
+                }
             }
+            }
+    
+        
+            setFiltered(categoryArray)
         }
-        setFiltered(categoryArray)
-    }else if (formValues.filtertype =="PRODUCE"){
+    
+    else if (formValues.filtertype =="PRODUCE"){
         let produceArray=[];
         for (let i = 0; i < initial.length; i++){
             for (let p = 0; p < initial[i].produce.length; p++){
