@@ -7,10 +7,11 @@ import axios from 'axios'
 import { BASE_URL } from './services/api';
 
 function App() {
-  const [user, setUser] = useState({'username':'', 'password':'', 'payload':{}})
+  const [user, setUser] = useState(null)
   const [auth, toggleAuth] = useState(false)
   const [produce, setProduce] = useState([])
   const [seasonLocations, setSeasonLocations] = useState([])
+  const [members, setMembers] = useState([])
 
   useEffect(()=>{
     const getSeasonLocs = async () => {
@@ -23,10 +24,9 @@ function App() {
 },[])
 
 
-
   return (
     <div className="bg-mygreen">
-       <UserContext.Provider value={{user, setUser, auth, toggleAuth, produce, setProduce, seasonLocations, setSeasonLocations}}>
+       <UserContext.Provider value={{user, setUser, auth, toggleAuth, produce, setProduce, seasonLocations, setSeasonLocations, members, setMembers}}>
         <header>
           <Header/>
         </header>

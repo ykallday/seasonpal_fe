@@ -8,8 +8,7 @@ import Search from './Search'
 import SearchResults from './SearchResults'
 import Suggestion from './Suggestion'
 import Contact from './Contact'
-
-
+import ProfileChange from './ProfileChange'
 import {Route, Routes} from 'react-router-dom'
 
 export default function Main(){
@@ -20,7 +19,7 @@ export default function Main(){
                 <Route path = "login/" element={<Login/>}/>
                 <Route path = "register/" element={<Register/>}/>
                 <Route path = "profile/" element={<Profile/>}/>
-                
+                <Route path = "profile/change/:id" element={<ProfileChange/>}/>
                 <Route path = "note/" element={<Note/>}/>
                 <Route path = "resources/" element={<Resources/>}/>
                 <Route path = "search/" element={<Search/>}/>

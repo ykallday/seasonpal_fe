@@ -85,7 +85,7 @@ useEffect(()=>{
         let produceArray=[];
         for (let i = 0; i < initial.length; i++){
             for (let p = 0; p < initial[i].produce.length; p++){
-            if (initial[i].produce[p].name == formValues.query.toUpperCase()){
+            if (initial[i].produce[p].name.includes(formValues.query.toUpperCase())){
                 let double = false;
                 for (let d = 0; d < produceArray.length; d++){
                     if (produceArray[d].name != initial[i].produce[p].name || produceArray.length == 0){
@@ -131,7 +131,7 @@ return (
                 <h3 className="font-didot text-3xl my-7">Search for Seasonal Produce:</h3>
                 <div className="p-5  px-20 border-2 border-mylime rounded-lg w-fit text-center m-[auto] my-4">
                     <label className="text-m flex text-center" htmlFor="location"><span className="px-2"><TbCircleNumber1 size={20}/></span>SELECT YOUR LOCATION</label>
-                    <select className="rounded-full w-auto border-2 m-2 text-center text-s"
+                    <select className=" rounded-sm w-auto border-2 m-2 text-center text-s"
                         onChange={handleChange}
                         name="location"
                         type="text"
@@ -193,21 +193,21 @@ return (
                     </select>
                 </div>
  
-                <div className=" bg-mylime font-semibold text-m rounded-lg p-4 w-[90vw] m-auto text-center">
+                <div className=" bg-mylime font-semibold text-m rounded-lg p-4 w-[100vw] m-auto text-center">
                 <label className="p-3 text-m inline-flex text-center m-auto" htmlFor="filtertype"><span className="text-center px-2"><TbCircleNumber2 size={20}/></span>FILTER BY</label>
                         <br></br>
-                        <select className="rounded-full w-fit border-2 m-2 text-center text-s font-normal"
+                        <select className="rounded-sm w-fit m-2 text-center text-s font-light h-7"
                             onChange={handleChange}
                             name="filtertype"
                             type="text"
                             value={formValues.filtertype}
                         >
-                            <option value="">----</option>
+                            <option value="">SELECT FILTER</option>
                             <option value="MONTH/SEASON">MONTH / SEASON</option>
                             <option value="CATEGORY">CATEGORY</option>
                             <option value="PRODUCE">SPECIFIC PRODUCE</option>
                             </select>
-                            <input className="rounded-full w-fit border-2 m-2 text-center text-s font-normal"
+                            <input className="rounded-sm w-fit h-7 m-auto text-center text-s font-light"
                                 onChange={handleChange}
                                 name="query"
                                 list = {formValues.filtertype}
@@ -260,7 +260,7 @@ return (
                     return(
                         
                         <div className="w-[25vw] p-3 bg-slate-100 rounded-lg shadow-lg hover:scale-105" key={snack.id}>
-                          {console.log(filtered)}
+                         
                             <img className="p-2 h-[25vw] w-[25vw] object-cover m-auto border-4 border-gray-300" src = {snack.image_url}/>
                           
                             <h1 className="text-m px-3 pt-2 font-semibold tracking-widest text-left">{snack.name}</h1> 

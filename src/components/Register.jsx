@@ -7,7 +7,7 @@ export default function Register() {
 
   const [formValues, setFormValues] = useState({
     username: "",
-    email: "",
+    email:"",
     password: "",
     confirmPassword: "",
   });
@@ -15,27 +15,25 @@ export default function Register() {
   const handleChange = (e) => {
     e.preventDefault();
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
-    console.log(formValues);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formValues)
     await RegisterUser({
-      username: formValues.username,
-      email: formValues.email,
-      password: formValues.password,
-      location: formValues.location
+      "username": formValues.username,
+      "email":formValues.email,
+      "password": formValues.password,
+      "location": formValues.location
     });
 
     setFormValues({
       username: "",
-      email: "",
+      email:"",
       password: "",
       confirmPassword: "",
       location: ""
     });
-    navigate("/");
+    navigate("/login");
   };
   return (
     <div className="text-center bg-lightblue h-[100vh] focus:shadow-xl">
@@ -162,6 +160,7 @@ export default function Register() {
             </div>
           </div>
           <button
+            onClick={handleSubmit}
             className="my-5 px-3 py-1 text-s rounded-2xl border-solid hover:scale-105 border-2 border-mygreen text-mygreen"
             disabled={
               !formValues.email ||

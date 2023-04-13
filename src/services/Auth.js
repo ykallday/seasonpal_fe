@@ -5,19 +5,42 @@ import Client from "./api";
 export const SignInUser = async (data) => {
   try {
     const res = await Client.post("api/token/obtain/", data);
-    console.log(res.data)
     localStorage.setItem('token', res.data.access)
-    localStorage.setItem('token-refresh', res.data.refresh)
+    localStorage.setItem('token_refresh', res.data.refresh)
     return res.data;
+  } catch (error) {
+    return (alert("Sorry, that password's incorrect - please try again!"));
+  }
+};
+
+
+
+export const assignUser = async(data)=>{
+  try{
+    let user={}
+    const res = await Client.get("api/users");
+    console.log(res)
+    const userArray = Array.from(res.data)
+    console.log(userArray)
+    userArray.map((item)=>{
+      if (item.username == data.username){
+        user.id = item.id
+        user.username = item.username
+        user.password = item.password
+        user.location = item.location
+        console.log(user)
+      }
+        return(user)
+      })
+    return user;
   } catch (error) {
     throw error;
   }
 };
-//need to find a way to grab user info along with token
-//need to find a way to trigger refresh token - another function?
-//refresh should be triggered every page (if no token, log in ; if token expired, refresh)
+
 export const RegisterUser = async (data) => {
   try {
+    console.log(data)
     const res = await Client.post("api/user/create/", data);
     return res.data;
   } catch (error) {
@@ -26,10 +49,10 @@ export const RegisterUser = async (data) => {
 };
 
 export const CheckSession = async () => {
-  try {
-    const res = await Client.get("/obtain/token");
-    return res.data;
-  } catch (error) {
-    throw error;
-  }
-};
+  if (localStorage.token || localStorage.token_refresh){
+    console.log(localStorage.token)
+    console.log(localStorage.token_refresh)
+    return true;
+  }else{
+    return false;
+  }}

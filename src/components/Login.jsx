@@ -1,12 +1,14 @@
-import { SignInUser } from '../services/Auth';
+import { SignInUser, assignUser } from '../services/Auth';
 import { UserContext } from "../UserContext";
 import { useContext, useState, useEffect } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
+import axios from 'axios';
+import { BASE_URL } from '../services/api';
 
 export default function Login() {
-    const { user, setUser } = useContext(UserContext)
-    const { auth, toggleAuth } = useContext(UserContext)
-    const [formValues, setFormValues] = useState({ username: "", password: "" });
+    const { user, setUser, auth, toggleAuth } = useContext(UserContext)
+    const [formValues, setFormValues] = useState({ username: "", password: "" })
+    // const [newUser, setNewUser]= useState({id:'', location:'', password:'', username:''})
 
     let navigate = useNavigate();
 
@@ -16,15 +18,22 @@ export default function Login() {
     
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setUser(formValues.username, formValues.password)
-        const payload = await SignInUser(formValues);
-        console.log(payload)
-        setFormValues({ username: "", password: ""});
-        toggleAuth(true);
-        navigate('/')
-        console.log("logged in!");
-        console.log(user)  
+        const info = await SignInUser(formValues);
+        console.log(info)
+        if (info.access){
+            toggleAuth(true)
+            console.log("auth true")
+            const allUsers = await assignUser(formValues);
+            setUser(allUsers)
+            navigate('/')
+            console.log("logged in!");
+            
+        }
     }
+ 
+
+   
+
     return (
             <div className="text-center bg-lightblue h-[100vh] focus:shadow-xl">
                 <h1 className="py-5 font-light tracking-wider text-2xl"> WELCOME BACK </h1>

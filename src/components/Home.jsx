@@ -4,6 +4,7 @@ import {useContext} from 'react'
 import Search from './Search'
 export default function Home(){
     const {auth, user, seasonLocations} = useContext(UserContext)
+    console.log(useContext(UserContext))
     if (seasonLocations.length == 0){
         return(
             <div className="bg-white">
