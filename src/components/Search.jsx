@@ -2,10 +2,11 @@ import { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../UserContext'
 import { TbCircleNumber1, TbCircleNumber2, TbNote } from 'react-icons/tb'
+// import ProduceDetail from './modals/ProduceDetail'
 
 export default function Search() {
 
-    const { produce, seasonLocations, user, auth } = useContext(UserContext)
+    const { produce, item, setItem, seasonLocations, user, auth } = useContext(UserContext)
     const [filtered, setFiltered] = useState([])
     const [initial, setInitial] = useState([])
 
@@ -123,6 +124,13 @@ export default function Search() {
     const handleSubmit = (e) => {
         e.preventDefault();
     }
+    
+    // function handleDetail(id){
+    //     setItem(id)
+    //   }
+    // function makeVisible (){
+    //     document.s
+    // }
 
     if (seasonLocations.length == 0) {
         return (
@@ -268,12 +276,12 @@ export default function Search() {
                                     return (
 
                                         <div className="w-[25vw] p-3 bg-slate-100 rounded-lg shadow-lg hover:scale-105" key={snack.id} >
-
                                             <img className="p-2 h-[25vw] w-[25vw] object-cover m-auto border-4 border-gray-300" src={snack.image_url} />
                                             <div className="flex justify-between">
                                             <h1 className="text-m px-3 pt-2 font-semibold tracking-widest text-left">{snack.name}</h1>
                                             {user && auth? <button className="p-1 mt-2 rounded-lg bg-slate-300 hover:scale-110" onClick={() => navToNote(snack.id)}><TbNote size={20}/></button> :null}
                                             </div>
+                                            {/* <div onClick={()=>handleDetail(snack.id)}><ProduceDetail/></div> */}
                                         </div>
                                     )
                                 })

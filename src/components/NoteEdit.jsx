@@ -11,28 +11,29 @@ export default function NoteEdit() {
     const [note, setNote] = useState({})
     const { user, auth, trigger, setTrigger} = useContext(UserContext)
     let navigate = useNavigate();
-    const [subject, setSubject] = ([])
+    const [produceId, setProduceId] = useState("")
+    const [subject, setSubject] = useState("")
     const [ready, setReady] = useState(false)
+    const [load, setLoad] = useState(false)
 
     useEffect(() => {
         const getNote = async () => {
             const res = await axios.get(`${BASE_URL}api/notes/${noteid}`);
             setNote(res.data);
             setReady(!ready)
-            
+            setProduceId(note.produce)
         }
         getNote();
+
     }, [])
 
     useEffect(() => {
         const getProduce = async () => {
-            const res = await axios.get(`${BASE_URL}api/produce/${note.produce}`);
-            setSubject(res)
+            const res = await axios.get(`${BASE_URL}api/produce/${produceId}`);
+            setSubject(res.data)
         }
         getProduce()
-   
-    }, [ready])
-
+    }, [produceId])
 
     const [formValues, setFormValues] = useState({
         produce: note.produce,
@@ -56,18 +57,12 @@ export default function NoteEdit() {
         setTrigger(!trigger)
         navigate(`/mynotes/`);
 }
-// useEffect(() => {
-//     const getProduce = async () => {
-//         const res = await axios.get(`${BASE_URL}api/produce/${note.produce}`);
-//     getProduce();
-//     setSubject(res.data)}
-// }, [trigger])
 
-   if (subject){
     return (
+      
         <div className="p-3  text-center bg-white font-light">
-            <img src = {subject.image_url}/>
             <form>
+                <img className="w-[50vw] m-[auto]" src = {subject.image_url}/>
                     <div className="py-3">
                         <label className="p-3 text-s" htmlFor="username">Note Name:</label>
                         <br></br>
@@ -102,12 +97,7 @@ export default function NoteEdit() {
             </div>
 
     
-  )
-    }else{
-  return(
-    <div>
-        <h3>Please wait while your note loads!</h3>
-    </div>
-  )
-}
-}
+  )}
+ 
+
+    

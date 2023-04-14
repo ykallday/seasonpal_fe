@@ -8,39 +8,42 @@ import { BASE_URL } from '../services/api'
 export default function NoteDetail(){
 
     const [note, setNote] = useState("")
-    const [subject, setSubject] = useState("")
+    // const [subject, setSubject] = useState("")
     let {noteid} = useParams();
-    const {user, auth} = useContext(UserContext)
-    let load = false
-    let navigate= useNavigate()
+    // const {user, auth} = useContext(UserContext)
+    // let load = false
+    // let navigate= useNavigate()
+    const { user, auth, trigger, setTrigger} = useContext(UserContext)
+    // let navigate = useNavigate();
+    const [produceId, setProduceId] = useState("")
+    const [subject, setSubject] = useState({})
+    const [ready, setReady] = useState(false)
+    
 
     useEffect(() => {
         const getNote = async () => {
             const res = await axios.get(`${BASE_URL}api/notes/${noteid}`);
-            setNote(res.data)
-            
+            setNote(res.data);
+            setReady(!ready)
+            setProduceId(note.produce)
         }
         getNote();
+
     }, [])
 
     useEffect(() => {
         const getProduce = async () => {
-            const res = await axios.get(`${BASE_URL}api/produce/${note.produce}`);
+            const res = await axios.get(`${BASE_URL}api/produce/${produceId}`);
             setSubject(res.data)
         }
-        getProduce();
-    }, [load])
-
-   const navToEditNote=()=>{
-        navigate(`./profile`)}
+        getProduce()
+   
+    }, [produceId])
 
 
-        if (!load){
-            return(
-                <div><h1>loading</h1></div>
-            )
-        }
-        else if (auth && user && load){
+
+
+ if (auth && user){
             return (
                 <div className="p-3  text-center bg-white font-light">
         
