@@ -14,6 +14,10 @@ export default function Profile (){
     const navToProfChange=(id)=>{
         navigate(`/profile/change/${id}`)
     }
+    const navToNotes=()=>{
+        navigate(`/mynotes`)
+    }
+
 
     CheckSession();
     
@@ -24,9 +28,9 @@ if(auth && user){
         <div className="bg-white text-center p-4">
             <h1 className="font-didot text-3xl flex justify-center my-10">Welcome, {user.username}!<span className="p-1"><BsEmojiSmile size = {30}/></span> </h1>
             <div className="grid grid-cols-3 w-[70vw] m-auto my-20">
-                <div onClick={() => navToProfChange(user.id)}className="w-[20vw] h-[20vw] flex justify-center hover:scale-105 rounded-xl bg-mygreen p-3"><h1 className="my-[5vw] font-didot text-lg text-white">Change my Profile</h1></div>
-                <div className="w-[20vw] h-[20vw] flex justify-center hover:scale-105 rounded-xl bg-mygreen p-3"><h1 className="my-[5vw] font-didot text-lg text-white">Save Notes</h1></div>
-                <div className="w-[20vw] h-[20vw] flex justify-center hover:scale-105 rounded-xl bg-mygreen p-3"><h1 className="my-[5vw] font-didot text-lg text-white">Add a Resource for the Community</h1></div>
+                {/* <div onClick={() => navToProfChange(user.id)}className="w-[20vw] h-[20vw] flex justify-center hover:scale-105 rounded-xl bg-mygreen p-3"><h1 className="my-[5vw] font-didot text-lg text-white">Change my Profile</h1></div> */}
+                <div onClick={navToNotes}className="w-[20vw] h-[20vw] flex justify-center hover:scale-105 rounded-xl bg-mygreen p-3"><h1 className="my-[5vw] font-didot text-lg text-white">View My Notes</h1></div>
+                {/* <div className="w-[20vw] h-[20vw] flex justify-center hover:scale-105 rounded-xl bg-mygreen p-3"><h1 className="my-[5vw] font-didot text-lg text-white">Add a Resource for the Community</h1></div> */}
             </div>
         </div>
     )

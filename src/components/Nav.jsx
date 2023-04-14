@@ -4,9 +4,10 @@ import {Link} from 'react-router-dom'
 import {MdAlternateEmail} from 'react-icons/md'
 import {FaUserCircle} from 'react-icons/fa'
 import {HiOutlineLogout} from 'react-icons/hi'
+import Logo from '../assets/logo.png'
 
 export default function Nav(){
-    const {user, setUser} = useContext(UserContext)
+    const {user, setUser, seasonLocations} = useContext(UserContext)
     const {auth, toggleAuth} = useContext(UserContext)
     const handleLogout = () => {
         setUser(null)
@@ -16,7 +17,8 @@ export default function Nav(){
         return(
             <div className="h-30 bg-white bg-opacity-10">
             <div>
-                <p className="font-didot float-left p-9 h-5 text-4xl text-white">SeasonPal</p>
+                <img className = " w-[20vw] h-fit float-left p-9" src = {Logo}/>
+                {/* <p className="font-didot float-left p-9 h-5 text-4xl text-white">SeasonPal</p> */}
             </div>
             <div className="flex justify-end p-6 text-center">
                 <Link className="m-3 bg-mylime px-2 py-2 pt-2.5 sm:shadow-l rounded-md text-xs hover:scale-105" to = "/"><button>HOME</button></Link>
@@ -30,10 +32,17 @@ export default function Nav(){
         )
     }
     else{
+        if (seasonLocations.length == 0){
+            return(
+                <div>
+                  <img className = " w-[20vw] h-fit p-9" src = {Logo}/>
+                </div>
+            )}
+        else{
         return(
             <div className="h-30 bg-white bg-opacity-10">
             <div>
-                <p className="font-didot float-left p-9 h-25 text-4xl text-white">SeasonPal</p>
+            <img className = " w-[20vw] h-fit float-left p-9" src = {Logo}/>
             </div>
             <div className="flex justify-end p-6">
                 <Link className="m-3 bg-mylime px-2 py-2 pt-2.5 sm:shadow-l rounded-md text-xs hover:scale-105 " to = "/"><button>HOME</button></Link>
@@ -45,4 +54,4 @@ export default function Nav(){
             </div>
         )
     }
-}
+}}

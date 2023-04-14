@@ -9,6 +9,9 @@ import SearchResults from './SearchResults'
 import Suggestion from './Suggestion'
 import Contact from './Contact'
 import ProfileChange from './ProfileChange'
+import MyNotes from './MyNotes'
+import NoteDetail from './NoteDetail'
+import NoteEdit from './NoteEdit'
 import {Route, Routes} from 'react-router-dom'
 
 export default function Main(){
@@ -20,7 +23,11 @@ export default function Main(){
                 <Route path = "register/" element={<Register/>}/>
                 <Route path = "profile/" element={<Profile/>}/>
                 <Route path = "profile/change/:id" element={<ProfileChange/>}/>
-                <Route path = "note/" element={<Note/>}/>
+                <Route path = "note/:produceid" element={<Note/>}/>
+                <Route path = "search/note/:produceid" element={<Note/>}/>
+                <Route path = "mynotes" element={<MyNotes/>}/>
+                <Route path = "mynotes/:noteid" element={<NoteDetail/>}/>
+                <Route path = "mynotes/edit/:noteid" element={<NoteEdit/>}/>
                 <Route path = "resources/" element={<Resources/>}/>
                 <Route path = "search/" element={<Search/>}/>
                 <Route path = "searchresults/" element={<SearchResults/>}/>

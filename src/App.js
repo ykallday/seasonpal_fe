@@ -12,6 +12,8 @@ function App() {
   const [produce, setProduce] = useState([])
   const [seasonLocations, setSeasonLocations] = useState([])
   const [members, setMembers] = useState([])
+  const [trigger, setTrigger] = useState(false)
+
 
   useEffect(()=>{
     const getSeasonLocs = async () => {
@@ -26,7 +28,7 @@ function App() {
 
   return (
     <div className="bg-mygreen">
-       <UserContext.Provider value={{user, setUser, auth, toggleAuth, produce, setProduce, seasonLocations, setSeasonLocations, members, setMembers}}>
+       <UserContext.Provider value={{trigger, setTrigger, user, setUser, auth, toggleAuth, produce, setProduce, seasonLocations, setSeasonLocations, members, setMembers}}>
         <header>
           <Header/>
         </header>
