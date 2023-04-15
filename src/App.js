@@ -15,6 +15,8 @@ function App() {
   const [trigger, setTrigger] = useState(false)
   const [confirm, setConfirm] = useState(false)
   const [item, setItem] = useState("")
+  const [currLocation, setCurrLocation] = useState("")
+  const [go, setGo] = useState(false);
 
 
   useEffect(()=>{
@@ -32,7 +34,7 @@ function App() {
     <div className="bg-mygreen">
        <UserContext.Provider value={{setItem, item, confirm, setConfirm, trigger, 
         setTrigger, user, setUser, auth, toggleAuth, produce, setProduce,
-         seasonLocations, setSeasonLocations,}}>
+         seasonLocations, setSeasonLocations,go, setGo, currLocation, setCurrLocation}}>
         <header>
           <Header/>
         </header>

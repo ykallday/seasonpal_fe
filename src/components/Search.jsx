@@ -3,12 +3,16 @@ import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../UserContext'
 import { TbCircleNumber1, TbCircleNumber2, TbNote } from 'react-icons/tb'
 import ProduceDetail from './modals/ProduceDetail'
+import axios from 'axios'
+import { BASE_URL } from '../services/api'
+
 
 export default function Search() {
 
-    const { produce, item, setItem, seasonLocations, user, auth } = useContext(UserContext)
+    const {produce, item, setItem, seasonLocations, user, auth, go, setGo} = useContext(UserContext)
     const [filtered, setFiltered] = useState([])
     const [initial, setInitial] = useState([])
+ 
 
     const [formValues, setFormValues] = useState({ location: "", filtertype: "", query: "" });
     let navigate = useNavigate()
@@ -18,8 +22,8 @@ export default function Search() {
     
 
     useEffect(() => {
-        let locArray = []
         let locPro = []
+        let locArray= []
         formValues.query = ""
         formValues.filtertype = ""
         for (let i = 0; i < seasonLocations.length; i++) {
@@ -127,9 +131,9 @@ export default function Search() {
     
     function handleDetail(id){
         setItem(id)
-        console.log(item)
-      }
+        setGo(!go)
 
+    }
     if (seasonLocations.length == 0) {
         return (
             <div className="bg-white">
@@ -280,6 +284,7 @@ export default function Search() {
                                             {user && auth? <button className="p-1 mt-2 rounded-lg bg-slate-300 hover:scale-110" onClick={() => navToNote(snack.id)}><TbNote size={20}/></button> :null}
                                             </div>
                                             <div onClick={()=>handleDetail(snack.id)}><ProduceDetail/></div>
+                                            
                                         </div>
                                     )
                                 })

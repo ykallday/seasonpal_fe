@@ -6,9 +6,12 @@ import axios from 'axios'
 
 export default function ProduceDetail() {
   let [isOpen, setIsOpen] = useState(false)
-  const {item} = useContext(UserContext)
-  const [detail, setDetail] = useState([])
-  const [ready,setReady] = useState(false)
+  const {item, produce, go} = useContext(UserContext)
+  const [currProduce, setCurrProduce] = useState(null)
+  // const [getLocs, setGetLocs] = useState(false)
+
+
+
 
 
   function closeModal() {
@@ -21,18 +24,19 @@ export default function ProduceDetail() {
     setIsOpen(true)
   }
 
-
   useEffect(() => {
-    const getDetail = async () => {
-        const res = await axios.get(`${BASE_URL}api/produce/${item.id}`);
-        setDetail(res.data)
-        setReady(!ready)
+    const setDetail = async () => {
+
+        const res = await axios.get(`${BASE_URL}api/produce/${item}`);
+        setCurrProduce(res.data)
+        // setGetLocs(!getLocs)
     }
-    getDetail();
-  }, [item])
+    setDetail();
+  }, [go])
 
 
-  if (detail){
+  
+if (currProduce){
 
   return (
     <>
@@ -76,29 +80,26 @@ export default function ProduceDetail() {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    {detail.name}
+                    {currProduce.name}
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                     Are you sure you would like to delete this note?
+                    {currProduce.category}
+                    <br></br>
+                    {currProduce.description}
+                    
                     </p>
                   </div>
 
                   <div className="mt-4 flex justify-start gap-4">
                     <button
                       type="button"
-                      className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-red-300 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex justify-end px-4 py-2 text-sm font-medium text-blue-900 bg-red-300 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={closeModal}
                     >
-                      Yes
+                      Close
                     </button>
-                    <button
-                      type="button"
-                      className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      onClick={closeModal}
-                    >
-                      Cancel
-                    </button>
+                    
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -108,6 +109,12 @@ export default function ProduceDetail() {
       </Transition>
 
     </>)
-   
-  }
-}
+
+
+}else{
+  return(
+    <div>
+    <h2>loading</h2>
+    </div>
+  )
+}}
