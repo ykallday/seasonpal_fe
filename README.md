@@ -17,7 +17,7 @@ Designed and created by Yael Kaufman
 I created an ERD diagram using [Draw.io!](https://drive.google.com/file/d/1a4VaOTSJD28_XgbcRlcE_Gw0Bx5cEWa3/view?usp=sharing "Draw.io"). 
 ### 2. Component Hierarchy Diagram & Wireframe
 I created a CHD & wireframe using [Figma](https://www.figma.com/file/0NCkV4tbvh7lWAi9vA1jb3/seasonpal?node-id=0%3A1&t=e2TBzBR1XyGbKnwE-1).
-![Wireframe](SeasonPalBE/assets/Wireframe.png "Wireframe")
+![Wireframe](/src/assets/Wireframe.png "Wireframe")
 ### 3. Information Gathering
 Almost all of my data came from the Seasonal Food Guide website, which is a great resource and my overall inspiration.
 https://www.seasonalfoodguide.org/
