@@ -16,6 +16,7 @@ export default function Suggestion() {
         
 
     const [formValues, setFormValues] = useState({
+        username:"",
         category: "",
         content: "",
     });
@@ -32,12 +33,12 @@ export default function Suggestion() {
       const suggestion = await CreateSuggestion({
         "category":formValues.category,
         "content": formValues.content,
-        "user":user.id
+        "username": formValues.username,
         });
         console.log(suggestion)
     
         setFormValues({
-          user:"",
+          username:"",
           category:"",
           content: ""
         });
@@ -57,8 +58,23 @@ export default function Suggestion() {
             
             <div>
                 <form>
+                <div className="py-3">
+                        <label className="p-3 text-s" htmlFor="username">Username:</label>
+                        <br></br>
+                        <input
+                            className="rounded-2xl p-2 px-4 text-xs border-2"
+                            onChange={handleChange}
+                            placeholder={user.username}
+                            name="category"
+                            type="text"
+                            value={user.username}
+                            read
+                        />
+                        </div>
+             
+
                     <div className="py-3">
-                        <label className="p-3 text-s" htmlFor="username">Category:</label>
+                        <label className="p-3 text-s" htmlFor="category">Category:</label>
                         <br></br>
                         <input
                             className="rounded-2xl p-2 px-4 text-xs border-2"

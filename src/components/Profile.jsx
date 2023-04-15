@@ -35,7 +35,7 @@ if(auth && user){
             <div className="grid grid-cols-3 w-[70vw] m-auto my-20">
                 <div onClick={() => navToProfChange(user.id)}className="w-[20vw] h-[20vw] flex justify-center hover:scale-105 rounded-xl bg-mygreen p-3"><h1 className="my-[5vw] font-didot text-lg text-white">Change my Profile</h1></div>
                 <div onClick={navToNotes}className="w-[20vw] h-[20vw] flex justify-center hover:scale-105 rounded-xl bg-mygreen p-3"><h1 className="my-[5vw] font-didot text-lg text-white">View My Notes</h1></div>
-                {/* <div onClick={navToSuggestion}className="w-[20vw] h-[20vw] flex justify-center hover:scale-105 rounded-xl bg-mygreen p-3"><h1 className="my-[5vw] font-didot text-lg text-white">Add a Resource for the Community</h1></div> */}
+                <div onClick={navToSuggestion}className="w-[20vw] h-[20vw] flex justify-center hover:scale-105 rounded-xl bg-mygreen p-3"><h1 className="my-[5vw] font-didot text-lg text-white">Add a Resource for the Community</h1></div>
             </div>
         </div>
     )
