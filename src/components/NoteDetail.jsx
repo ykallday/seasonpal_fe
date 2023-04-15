@@ -8,17 +8,12 @@ import { BASE_URL } from '../services/api'
 export default function NoteDetail(){
 
     const [note, setNote] = useState("")
-    // const [subject, setSubject] = useState("")
     let {noteid} = useParams();
-    // const {user, auth} = useContext(UserContext)
-    // let load = false
-    // let navigate= useNavigate()
-    const { user, auth, trigger, setTrigger} = useContext(UserContext)
-    // let navigate = useNavigate();
+    const { user, auth} = useContext(UserContext)
     const [produceId, setProduceId] = useState("")
     const [subject, setSubject] = useState({})
     const [ready, setReady] = useState(false)
-    
+
 
     useEffect(() => {
         const getNote = async () => {
@@ -45,8 +40,9 @@ export default function NoteDetail(){
 
  if (auth && user){
             return (
+                
                 <div className="p-3  text-center bg-white font-light">
-        
+
                     <h1 className="text-xl">View your note about <span className="font-semibold">{subject.name}</span> !</h1>
                     <div className="flex justify-center">
                         <div className="w-[30vw] h-fit mt-5 p-3 bg-slate-100 rounded-lg shadow-lg hover:scale-105" >

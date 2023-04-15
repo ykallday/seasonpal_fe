@@ -35,7 +35,7 @@ export default function Nav(){
         if (seasonLocations.length == 0){
             return(
                 <div>
-                  <img className = " w-[20vw] h-fit p-9" src = {Logo}/>
+                  <Link to="/"><img className = " w-[20vw] h-fit p-9" src = {Logo}/></Link>
                 </div>
             )}
         else{

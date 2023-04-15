@@ -2,6 +2,7 @@ import banner from '../assets/refbanner.png'
 import axios from 'axios'
 import {useEffect,useState} from 'react'
 import { BASE_URL } from '../services/api'
+import {useNavigate} from 'react-router-dom'
 
 export default function Resources (){
     const [suggestions, setSuggestions] = useState([])
@@ -14,12 +15,22 @@ export default function Resources (){
         getSuggestions();
       }, [])
 
+      let navigate = useNavigate()
+
+    
+
+      const navBack=()=>{
+          navigate(-1)
+      }
     return(
         <div className="bg-white">
+            
         <div className="w-[100vw] h-[30vh] flex justify-center bg-mygreen mt-1">
             <img className = "h-[25vh]" src={banner}/>
         </div>
-        <div className="flex flex-cols pt-10 bg-white justify-center p-5 text-justify">
+        <button className=" m-[auto] block mt-4 hover:scale-105 p-2 rounded-lg bg-pink-200"onClick={navBack}><h5 className=" text-center text-xs font-semibold uppercase">Back</h5></button>
+        <div className="flex flex-cols pt-3 bg-white justify-center p-5 text-justify">
+            
             <div className="w-[30vw] p-5">
             <h3>This website was created with the intention of making seasonal eating feel less like work</h3>
             <img src = "https://cdn.dribbble.com/users/2054184/screenshots/4885841/media/8dc03a0c6d0b839db02e59b440eb1e6d.gif"/> <span>and a little more like FUN! </span> <img src="https://media3.giphy.com/media/dAdA5PgN0ovYJLTQ4C/giphy.gif?cid=ecf05e47dw2xykk5vsytd83frzx8fi2v0m30x034slaw637n&rid=giphy.gif&ct=g"/>

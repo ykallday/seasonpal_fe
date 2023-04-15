@@ -9,10 +9,17 @@ import strawberry from '../assets/strawberries.png'
 
 
 export default function Profile (){
+
+
+    
     const {auth, toggleAuth, user} = useContext(UserContext)
     let navigate = useNavigate()
 
+    
 
+    const navBack=()=>{
+        navigate(-1)
+    }
     const navToProfChange=(id)=>{
         navigate(`/profile/change/${id}`)
     }
@@ -32,6 +39,7 @@ export default function Profile (){
 if(auth && user){
     return(
         <div className="bg-white text-center p-4">
+            <button className=" hover:scale-105 p-2 rounded-lg bg-pink-200"onClick={navBack}><h5 className=" text-center text-xs font-semibold uppercase">Back</h5></button>
             <h1 className="font-didot text-3xl flex justify-center my-10">Welcome, {user.username}!<span className="p-1"><BsEmojiSmile size = {30}/></span> </h1>
             <div className="grid grid-cols-3 w-[50vw] m-auto my-20 gap-4">
                 <button onClick={() => navToProfChange(user.id)} className="bg-mylime hover:scale-110 rounded-lg p-2 px-4 tracking-wider font-light flex w-fit"><h1 className="pr-4"><FaUserCircle size={20}/></h1> Change Profile</button>
