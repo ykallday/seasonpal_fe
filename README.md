@@ -17,7 +17,6 @@ Designed and created by Yael Kaufman
 I created an ERD diagram using [Draw.io!](https://drive.google.com/file/d/1a4VaOTSJD28_XgbcRlcE_Gw0Bx5cEWa3/view?usp=sharing "Draw.io"). 
 ### 2. Component Hierarchy Diagram & Wireframe
 I created a CHD & wireframe using [Figma](https://www.figma.com/file/0NCkV4tbvh7lWAi9vA1jb3/seasonpal?node-id=0%3A1&t=e2TBzBR1XyGbKnwE-1).
-![Wireframe](/src/assets/Wireframe.png "Wireframe")
 ### 3. Information Gathering
 Almost all of my data came from the Seasonal Food Guide website, which is a great resource and my overall inspiration.
 https://www.seasonalfoodguide.org/
@@ -34,4 +33,25 @@ There are many improvements I'd like to make, and new additions.
 In the near future, I hope to:
 - Create a view that allows user to see the full seasonality of an item within user's location
 - Share location based resources
-- Complete User Authentication / Authorization
+- Complete User JWT Authentication / Authorization
+In the further future, I hope to:
+- Reconfigure my database
+- Add more produce
+- Foster a supportive community
+
+## Resources
+### Informational / Data / Images:
+https://www.seasonalfoodguide.org/
+https://foodprint.org/eating-sustainably/real-food-encyclopedia/
+https://www.pexels.com/
+https://unsplash.com/
+
+### Tailwind
+https://larainfo.com/blogs/react-tailwind-css-dialog-modal-example
+https://tailwindcss.com/docs/guides/create-react-app
+https://tailwindcomponents.com/cheatsheet/
+
+### Django / Auth
+https://medium.com/@ronakchitlangya1997/jwt-authentication-with-react-js-and-django-c034aae1e60d
+
+
