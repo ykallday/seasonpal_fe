@@ -31,6 +31,9 @@ export default function ProduceDetail() {
     getDetail();
   }, [item])
 
+
+  if (detail){
+
   return (
     <>
       <div>
@@ -103,6 +106,8 @@ export default function ProduceDetail() {
           </div>
         </Dialog>
       </Transition>
-    </>
-  )
+
+    </>)
+   
+  }
 }

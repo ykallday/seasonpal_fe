@@ -3,8 +3,9 @@ import {useContext, useEffect} from 'react'
 import {useNavigate, Link} from 'react-router-dom'
 import {BsEmojiSmile} from 'react-icons/bs'
 import { CheckSession } from '../services/Auth'
-import axios from 'axios'
-import { BASE_URL } from '../services/api'
+import {FaUserCircle} from 'react-icons/fa'
+import {GrNotes, GrNote} from 'react-icons/gr'
+import strawberry from '../assets/strawberries.png'
 
 
 export default function Profile (){
@@ -18,8 +19,8 @@ export default function Profile (){
     const navToNotes=()=>{
         navigate(`/mynotes`)
     }
-    const navToSuggestion=()=>{
-        navigate(`/suggestion`)
+    const navToSearch=()=>{
+        navigate(`/search`)
     }
 
 
@@ -32,11 +33,12 @@ if(auth && user){
     return(
         <div className="bg-white text-center p-4">
             <h1 className="font-didot text-3xl flex justify-center my-10">Welcome, {user.username}!<span className="p-1"><BsEmojiSmile size = {30}/></span> </h1>
-            <div className="grid grid-cols-3 w-[70vw] m-auto my-20">
-                <div onClick={() => navToProfChange(user.id)}className="w-[20vw] h-[20vw] flex justify-center hover:scale-105 rounded-xl bg-mygreen p-3"><h1 className="my-[5vw] font-didot text-lg text-white">Change my Profile</h1></div>
-                <div onClick={navToNotes}className="w-[20vw] h-[20vw] flex justify-center hover:scale-105 rounded-xl bg-mygreen p-3"><h1 className="my-[5vw] font-didot text-lg text-white">View My Notes</h1></div>
-                <div onClick={navToSuggestion}className="w-[20vw] h-[20vw] flex justify-center hover:scale-105 rounded-xl bg-mygreen p-3"><h1 className="my-[5vw] font-didot text-lg text-white">Add a Resource for the Community</h1></div>
+            <div className="grid grid-cols-3 w-[50vw] m-auto my-20 gap-4">
+                <button onClick={() => navToProfChange(user.id)} className="bg-mylime hover:scale-110 rounded-lg p-2 px-4 tracking-wider font-light flex w-fit"><h1 className="pr-4"><FaUserCircle size={20}/></h1> Change Profile</button>
+                <button onClick={navToNotes} className="bg-mylime hover:scale-110 rounded-lg p-2 px-4 tracking-wider font-light flex w-fit"><h1 className= "pr-4" ><GrNotes size = {20}/> </h1> View My Notes</button>
+                <button onClick={navToSearch}className="bg-mylime hover:scale-110 rounded-lg p-2 px-4 tracking-wider font-light flex w-fit"><h1 className="pr-4"><GrNote size={20}/></h1>Add New Note</button>
             </div>
+            <div className="absolute left-0 bottom-0 w-[100vw] h-[20vh] top-100"><img className="w-[100vw] cover" src={strawberry}/></div>
         </div>
     )
 

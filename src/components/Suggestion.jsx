@@ -33,9 +33,11 @@ export default function Suggestion() {
       const suggestion = await CreateSuggestion({
         "category":formValues.category,
         "content": formValues.content,
-        "username": formValues.username,
+        "username": user.username,
         });
+        console.log(user.username)
         console.log(suggestion)
+       
     
         setFormValues({
           username:"",
