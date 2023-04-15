@@ -3,27 +3,27 @@ import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../UserContext'
 import { TbCircleNumber1, TbCircleNumber2, TbNote } from 'react-icons/tb'
 import ProduceDetail from './modals/ProduceDetail'
-import axios from 'axios'
-import { BASE_URL } from '../services/api'
 
 
 export default function Search() {
-
-    const {produce, item, setItem, seasonLocations, user, auth, go, setGo} = useContext(UserContext)
+    const { setItem, seasonLocations, user, auth, go, setGo } = useContext(UserContext)
     const [filtered, setFiltered] = useState([])
     const [initial, setInitial] = useState([])
- 
-
     const [formValues, setFormValues] = useState({ location: "", filtertype: "", query: "" });
+
     let navigate = useNavigate()
-    const navToNote=(id)=>{
+
+    const navToNote = (id) => {
         navigate(`note/${id}`)
     }
-    
+
+    const navBack = () => {
+        navigate(-1)
+    }
 
     useEffect(() => {
         let locPro = []
-        let locArray= []
+        let locArray = []
         formValues.query = ""
         formValues.filtertype = ""
         for (let i = 0; i < seasonLocations.length; i++) {
@@ -48,7 +48,6 @@ export default function Search() {
 
             }
         }
-
         setFiltered(locPro)
         setInitial(locArray)
     }, [formValues.location])
@@ -61,7 +60,6 @@ export default function Search() {
                     for (let p = 0; p < initial[i].produce.length; p++) {
                         seasonArray.push(initial[i].produce[p])
                     }
-
                 }
             }
             setFiltered(seasonArray)
@@ -85,11 +83,8 @@ export default function Search() {
                         }
                     }
             }
-
-
             setFiltered(categoryArray)
         }
-
         else if (formValues.filtertype == "PRODUCE") {
             let produceArray = [];
             for (let i = 0; i < initial.length; i++) {
@@ -111,14 +106,9 @@ export default function Search() {
                     }
                 }
             }
-
             setFiltered(produceArray)
         }
-    }
-        , [formValues.query, formValues.filtertype])
-
-
-
+    }, [formValues.query, formValues.filtertype])
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -128,12 +118,12 @@ export default function Search() {
     const handleSubmit = (e) => {
         e.preventDefault();
     }
-    
-    function handleDetail(id){
+
+    function handleDetail(id) {
         setItem(id)
         setGo(!go)
-
     }
+
     if (seasonLocations.length == 0) {
         return (
             <div className="bg-white">
@@ -141,11 +131,15 @@ export default function Search() {
                 <img className="w-[75] bg-white m-auto" src="https://media1.giphy.com/media/l2JJHEW1lToNnJzxe/giphy.gif?cid=ecf05e4729c4dzzrj9hfsevs9t7zusmcjllew10778wxhxpy&rid=giphy.gif&ct=g" />
             </div>
         )
+
     } else {
         return (
             <div className="bg-white">
+
                 <div>
+
                     <form className="text-center h-fit p-2 bg-white" onSubmit={handleSubmit}>
+                        <button className=" hover:scale-105 p-2 rounded-lg bg-pink-200" onClick={navBack}><h5 className=" text-center text-xs font-semibold uppercase">Back</h5></button>
                         <h3 className="font-didot text-3xl my-7">Search for Seasonal Produce:</h3>
                         <div className="p-5  px-20 border-2 border-mylime rounded-lg w-fit text-center m-[auto] my-4">
                             <label className="text-m flex text-center" htmlFor="location"><span className="px-2"><TbCircleNumber1 size={20} /></span>SELECT YOUR LOCATION</label>
@@ -210,7 +204,6 @@ export default function Search() {
                                 <option value="Wyoming">Wyoming</option>
                             </select>
                         </div>
-
                         <div className=" bg-mylime font-semibold text-m rounded-lg p-4 m-auto text-center">
                             <label className="p-3 text-m inline-flex text-center m-auto" htmlFor="filtertype"><span className="text-center px-2"><TbCircleNumber2 size={20} /></span>FILTER BY</label>
                             <br></br>
@@ -265,9 +258,7 @@ export default function Search() {
                                 <option value="LEGUME"></option>
                                 <option value="NUT"></option>
                             </datalist>
-
                         </div>
-
                     </form>
                     <div className="p-3 text-center bg-lightblue w-[90vw] m-[auto] h-[80vh] rounded-lg my-5 overflow-scroll">
                         <h3 className="font-light text-3xl" >What's in season: <span className="underline font-semibold">{formValues.location.toUpperCase()}</span></h3>
@@ -280,11 +271,10 @@ export default function Search() {
                                         <div className="w-[25vw] p-3 bg-slate-100 rounded-lg shadow-lg hover:scale-105" key={snack.id} >
                                             <img className="p-2 h-[25vw] w-[25vw] object-cover m-auto border-4 border-gray-300" src={snack.image_url} />
                                             <div className="flex justify-between">
-                                            <h1 className="text-m px-3 pt-2 font-semibold tracking-widest text-left">{snack.name}</h1>
-                                            {user && auth? <button className="p-1 mt-2 rounded-lg bg-slate-300 hover:scale-110" onClick={() => navToNote(snack.id)}><TbNote size={20}/></button> :null}
+                                                <h1 className="text-m px-3 pt-2 font-semibold tracking-widest text-left">{snack.name}</h1>
+                                                {user && auth ? <button className="p-1 mt-2 rounded-lg bg-slate-300 hover:scale-110" onClick={() => navToNote(snack.id)}><TbNote size={20} /></button> : null}
                                             </div>
-                                            <div onClick={()=>handleDetail(snack.id)}><ProduceDetail/></div>
-                                            
+                                            <div onClick={() => handleDetail(snack.id)}><ProduceDetail /></div>
                                         </div>
                                     )
                                 })
@@ -292,9 +282,7 @@ export default function Search() {
 
                         </div>
                     </div>
-
                 </div>
-
             </div>
         )
     }

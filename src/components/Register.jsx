@@ -7,7 +7,7 @@ export default function Register() {
 
   const [formValues, setFormValues] = useState({
     username: "",
-    email:"",
+    email: "",
     password: "",
     confirmPassword: "",
   });
@@ -21,20 +21,21 @@ export default function Register() {
     e.preventDefault();
     await RegisterUser({
       "username": formValues.username,
-      "email":formValues.email,
+      "email": formValues.email,
       "password": formValues.password,
       "location": formValues.location
     });
 
     setFormValues({
       username: "",
-      email:"",
+      email: "",
       password: "",
       confirmPassword: "",
       location: ""
     });
     navigate("/login");
   };
+
   return (
     <div className="text-center bg-lightblue h-[100vh] focus:shadow-xl">
       <h1 className="py-5 font-light tracking-wider text-2xl"> REGISTER </h1>
@@ -68,7 +69,6 @@ export default function Register() {
               required
             />
           </div>
-
           <div>
             <label className="p-3 text-s" htmlFor="password">PASSWORD</label>
             <br></br>
@@ -154,8 +154,6 @@ export default function Register() {
                 <option value="West Virginia">West Virginia</option>
                 <option value="Wisoncsin">Wisconsin</option>
                 <option value="Wyoming">Wyoming</option>
-
-
               </select>
             </div>
           </div>

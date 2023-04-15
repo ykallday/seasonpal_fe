@@ -10,7 +10,6 @@ export const CreateNote = async (data) => {
     }
   }
 
-
   export const CreateSuggestion = async (data) => {
     try {
       const res = await Client.post("api/suggestions/", data);

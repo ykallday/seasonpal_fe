@@ -1,7 +1,5 @@
 import Client from "./api";
 
-
-
 export const SignInUser = async (data) => {
   try {
     const res = await Client.post("api/token/obtain/", data);
@@ -13,25 +11,20 @@ export const SignInUser = async (data) => {
   }
 };
 
-
-
-export const assignUser = async(data)=>{
-  try{
-    let user={}
+export const assignUser = async (data) => {
+  try {
+    let user = {}
     const res = await Client.get("api/users");
-    console.log(res)
     const userArray = Array.from(res.data)
-    console.log(userArray)
-    userArray.map((item)=>{
-      if (item.username == data.username){
+    userArray.map((item) => {
+      if (item.username == data.username) {
         user.id = item.id
         user.username = item.username
         user.password = item.password
         user.location = item.location
-        console.log(user)
       }
-        return(user)
-      })
+      return (user)
+    })
     return user;
   } catch (error) {
     throw error;
@@ -40,7 +33,6 @@ export const assignUser = async(data)=>{
 
 export const RegisterUser = async (data) => {
   try {
-    console.log(data)
     const res = await Client.post("api/user/create/", data);
     return res.data;
   } catch (error) {
@@ -49,10 +41,9 @@ export const RegisterUser = async (data) => {
 };
 
 export const CheckSession = async () => {
-  if (localStorage.token || localStorage.token_refresh){
-    console.log(localStorage.token)
-    console.log(localStorage.token_refresh)
+  if (localStorage.token || localStorage.token_refresh) {
     return true;
-  }else{
+  } else {
     return false;
-  }}
+  }
+}

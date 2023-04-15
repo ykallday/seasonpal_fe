@@ -11,7 +11,6 @@ function App() {
   const [auth, toggleAuth] = useState(false)
   const [produce, setProduce] = useState([])
   const [seasonLocations, setSeasonLocations] = useState([])
-  const [members, setMembers] = useState([])
   const [trigger, setTrigger] = useState(false)
   const [confirm, setConfirm] = useState(false)
   const [item, setItem] = useState("")
@@ -22,7 +21,6 @@ function App() {
   useEffect(()=>{
     const getSeasonLocs = async () => {
       const res = await axios.get(`${BASE_URL}api/seasonlocations/`);
-      console.log(res)
       setSeasonLocations(res.data)
     }
     getSeasonLocs();
