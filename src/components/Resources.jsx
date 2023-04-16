@@ -43,7 +43,7 @@ export default function Resources() {
             </div>
             <h1 className="font-light text-lg text-center">Check out some suggestions from the community!</h1>
             <div className="bg-lightblue p-5 text-center mt-2 flex w-[100vw]">
-                <div className="text-sm bg-lightblue p-2 w-[90vw] m-[auto] flex">
+                <div className="text-sm bg-lightblue p-2 w-[90vw] m-[auto] lg:flex">
                     {suggestions.map((item) => (
                         <div className="m-4 bg-slate-100 p-3 rounded-lg">
                             <h2 className="font-semibold">{item.category}</h2>
