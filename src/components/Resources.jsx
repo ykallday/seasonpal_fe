@@ -27,8 +27,8 @@ export default function Resources() {
 
     return (
         <div className="bg-white">
-            <div className="w-[100vw] h-[30vh] flex justify-center bg-mygreen mt-1">
-                <img className="h-[25vh]" src={banner} />
+            <div className="w-[100vw] sm:h-[30vh] h-[auto] pb-2 flex justify-center bg-mygreen mt-1">
+                <img className="sm:h-[25vh] h-[10vh] w-[fit]" src={banner} />
             </div>
             <button className=" m-[auto] block mt-4 hover:scale-105 p-2 rounded-lg bg-pink-200" onClick={navBack}><h5 className=" text-center text-xs font-semibold uppercase">Back</h5></button>
             <div className="flex flex-cols pt-3 bg-white justify-center p-5 text-justify font-light ">
