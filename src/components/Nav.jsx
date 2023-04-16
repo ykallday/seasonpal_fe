@@ -20,10 +20,10 @@ export default function Nav() {
         return (
             <div className="h-30 bg-white bg-opacity-10">
                 <div>
-                    <img className=" w-[20vw] hidden h-fit float-left p-9" src={Logo} />
+                    <img className=" sm:hidden md:hidden w-[20vw] h-fit float-left p-9" src={Logo} />
 
                 </div>
-                <div className="flex justify-end p-6 text-center">
+                <div className="flex sm:justify-center md:justify-center justify-end p-6 text-center">
                     <Link className="m-3 bg-mylime px-2 py-2 pt-2.5 rounded-md text-xs hover:scale-105" to="/"><button>HOME</button></Link>
                     <Link className="m-3 bg-mylime px-2 py-2 pt-2.5  rounded-md text-xs hover:scale-105" to="/resources"><button>RESOURCES</button></Link>
                     <Link className="m-3 bg-mylime px-2 pt-2.5 py-2 shadow-l rounded-md text-xs hover:scale-105" to="/search"><button>SEARCH</button></Link>
@@ -49,7 +49,7 @@ export default function Nav() {
                     <div>
                         <img className="sm:hidden md:hidden w-[20vw] h-fit float-left p-9" src={Logo} />
                     </div>
-                    <div className="flex justify-end p-6 sm:grid md:grid">
+                    <div className="flex justify-end p-6 sm:justify-center md:justify-center">
                         <Link className="m-3 bg-mylime px-2 py-2 pt-2.5 shadow-l rounded-md text-xs hover:scale-105 " to="/"><button>HOME</button></Link>
                         <Link className="m-3 bg-mylime px-2 py-2 pt-2.5 rounded-md text-xs hover:scale-105" to="/resources"><button>RESOURCES</button></Link>
                         <Link className="m-3 bg-purple-200 px-2 py-2 pt-2.5 rounded-md text-xs tracking-wide hover:scale-105 " to="/login"><button>LOGIN</button></Link>
