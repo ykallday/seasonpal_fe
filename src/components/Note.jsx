@@ -61,7 +61,7 @@ export default function Note() {
     if (auth && user) {
 
         return (
-            <div className="p-3  text-center bg-white font-light">
+            <div className=" text-center bg-white font-light sm:p-20">
 
                 <h1 className="text-xl">Save a note about <span className="font-semibold">{subject.name}</span> !</h1>
                 <div className="sm:flex sm:justify-center">
@@ -69,7 +69,7 @@ export default function Note() {
 
                         <img className="p-2 h-[65vw] w-[65vw]  sm:h-[30vw] sm:w-[30vw] object-cover m-auto border-4 border-gray-300" src={subject.image_url} />
                     </div>
-                    <div className="m-10 w-[30vw]text-center sm:text-left">
+                    <div className="m-10 w-[30vw] text-center sm:text-left">
                         <h1>Name: {subject.name}</h1>
                         <br></br>
                         <h2 className="text-sm">{subject.description}</h2>
