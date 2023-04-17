@@ -35,13 +35,13 @@ export default function Profile() {
     if (auth && user) {
 
         return (
-            <div className="bg-white text-center p-4">
+            <div className="bg-white text-center p-4 m-[auto]">
                 <button className=" hover:scale-105 p-2 rounded-lg bg-pink-200" onClick={navBack}><h5 className=" text-center text-xs font-semibold uppercase">Back</h5></button>
                 <h1 className="font-didot text-3xl flex justify-center my-10">Welcome, {user.username}!<span className="p-1"><BsEmojiSmile size={30} /></span> </h1>
-                <div className="grid grid-cols-3 w-[50vw] m-auto my-20 gap-4">
-                    <button onClick={() => navToProfChange(user.id)} className="bg-mylime hover:scale-110 rounded-lg p-2 px-4 tracking-wider font-light flex w-fit"><h1 className="pr-4"><FaUserCircle size={20} /></h1> Change Profile</button>
-                    <button onClick={navToNotes} className="bg-mylime hover:scale-110 rounded-lg p-2 px-4 tracking-wider font-light flex w-fit"><h1 className="pr-4" ><GrNotes size={20} /> </h1> View My Notes</button>
-                    <button onClick={navToSearch} className="bg-mylime hover:scale-110 rounded-lg p-2 px-4 tracking-wider font-light flex w-fit"><h1 className="pr-4"><GrNote size={20} /></h1>Add New Note</button>
+                <div className="md:grid md:grid-cols-3 md:w-[50vw] ml-[25vw] sm:ml-[32vw] md:m-[auto] md:my-20 md:gap-4">
+                    <button onClick={() => navToProfChange(user.id)} className="bg-mylime hover:scale-110 rounded-lg p-2 px-4 m-3 md:m-0 tracking-wider font-light flex w-fit"><h1 className="pr-4"><FaUserCircle size={20} /></h1> Change Profile</button>
+                    <button onClick={navToNotes} className="bg-mylime hover:scale-110 rounded-lg p-2 px-4 tracking-wider font-light flex w-fit m-3 md:m-0"><h1 className="pr-4" ><GrNotes size={20} /> </h1> View My Notes</button>
+                    <button onClick={navToSearch} className="bg-mylime hover:scale-110 rounded-lg p-2 px-4 tracking-wider font-light flex w-fit m-3 md:m-0"><h1 className="pr-4"><GrNote size={20} /></h1>Add New Note</button>
                 </div>
                 <div className="absolute left-0 bottom-0 w-[100vw] h-[20vh] top-100"><img className="w-[100vw] cover" src={strawberry} /></div>
             </div>
