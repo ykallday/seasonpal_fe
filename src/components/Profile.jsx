@@ -43,7 +43,7 @@ export default function Profile() {
                     <button onClick={navToNotes} className="bg-mylime hover:scale-110 rounded-lg p-2 px-4 tracking-wider font-light flex w-fit m-3 md:m-0"><h1 className="pr-4" ><GrNotes size={20} /> </h1> View My Notes</button>
                     <button onClick={navToSearch} className="bg-mylime hover:scale-110 rounded-lg p-2 px-4 tracking-wider font-light flex w-fit m-3 md:m-0"><h1 className="pr-4"><GrNote size={20} /></h1>Add New Note</button>
                 </div>
-                <div className="absolute left-0 bottom-0 w-[100vw] h-[20vh] top-100"><img className="w-[100vw] cover" src={strawberry} /></div>
+                <div className="absolute left-0 bottom-0 w-[100vw] sm:h-[20vh] h-[10vh] top-100"><img className="w-[100vw] cover" src={strawberry} /></div>
             </div>
         )
 

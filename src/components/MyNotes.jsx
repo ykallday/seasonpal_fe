@@ -85,12 +85,12 @@ export default function MyNotes() {
         
         return (
             <div className="bg-white">
-                <div className="bg-white flex w-[80vw] h-[100vh] justify-center pt-10 gap-10 m-auto text-left ">
+                <div className="bg-white sm:flex w-[80vw] h-[100vh] justify-center pt-10 gap-10 m-auto text-left ">
                     {
                         currentList.map((note) => {
                             return (
 
-                                <div className="w-[25vw] h-fit p-3 bg-slate-200 rounded-lg text-sm shadow-lg hover:scale-105 " key={note.id} >
+                                <div className="sm:w-[25vw] w-[75vw] sm:m-0 m-auto mt-1 mb-5 h-fit p-3 bg-slate-200 rounded-lg text-sm shadow-md hover:scale-105 " key={note.id} >
                                     <div className="flex justify-between">
                                         <h2 className="text-m px-3 pt-2 font-semibold tracking-widest text-left">{note.name}</h2>
                                     </div>
