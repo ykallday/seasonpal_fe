@@ -64,12 +64,12 @@ export default function Note() {
             <div className="p-3  text-center bg-white font-light">
 
                 <h1 className="text-xl">Save a note about <span className="font-semibold">{subject.name}</span> !</h1>
-                <div className="flex justify-center">
-                    <div className="w-[30vw] h-fit mt-5 p-3 bg-slate-100 rounded-lg shadow-lg hover:scale-105" >
+                <div className="sm:flex sm:justify-center">
+                    <div className="m-auto sm:m-0 w-[80vw] sm:w-[30vw] h-fit mt-5 p-3 bg-slate-100 rounded-lg shadow-lg hover:scale-105" >
 
-                        <img className="p-2 h-[30vw] w-[30vw] object-cover m-auto border-4 border-gray-300" src={subject.image_url} />
+                        <img className="p-2 h-[65vw] w-[65vw]  sm:h-[30vw] sm:w-[30vw] object-cover m-auto border-4 border-gray-300" src={subject.image_url} />
                     </div>
-                    <div className="m-10 w-[30vw] text-left">
+                    <div className="m-10 w-[30vw]text-center sm:text-left">
                         <h1>Name: {subject.name}</h1>
                         <br></br>
                         <h2 className="text-sm">{subject.description}</h2>
@@ -77,8 +77,8 @@ export default function Note() {
                         <h3>Learn more here!</h3>
                         <br></br>
                         <button className="text-xs text-left bg-lightblue p-1 px-2 rounded-md font-semibold hover:scale-110"><a target="_blank" href={subject.link1}>{subject.link1}</a></button>
-                        {subject.link2 ? <button className="text-xs text-left bg-lightblue p-1 px-2 rounded-md font-semibold hover:scale-110"><a target="_blank" href={subject.link2}>{subject.link2}</a></button> : null}
-                        {subject.link3 ? <button className="text-xs text-left bg-lightblue p-1 px-2 rounded-md font-semibold hover:scale-110"><a target="_blank" href={subject.link3}>{subject.link3}</a></button> : null}
+                        {subject.link2 ? <button className="text-xs text-left bg-lightblue p-1 px-2 sm:m-0 m-2 rounded-md font-semibold hover:scale-110"><a target="_blank" href={subject.link2}>{subject.link2}</a></button> : null}
+                        {subject.link3 ? <button className="text-xs text-left bg-lightblue p-1 px-2 sm:m-0 m-2 rounded-md font-semibold hover:scale-110"><a target="_blank" href={subject.link3}>{subject.link3}</a></button> : null}
                     </div>
                 </div>
                 <div>
