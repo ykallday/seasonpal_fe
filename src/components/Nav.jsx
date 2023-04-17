@@ -18,18 +18,28 @@ export default function Nav() {
     if (auth) {
 
         return (
-            <div className="h-30 bg-white bg-opacity-10">
+            <div className="sm:w-screen sm:flex sm:justify-between sm:p-3 sm:py-0 px-4 py-8 mx-auto pt-3 sm:pt-0 h-30 bg-white bg-opacity-10">
                 <div>
-                    <img className=" w-[20vw] h-fit float-left p-9" src={Logo} />
-
+                    <img className="w-3/5 sm:flex sm:float-left m-[auto] sm:pt-8 sm:m-0 sm:w-[20vw] " src={Logo} />
+                   
                 </div>
-                <div className="flex justify-end p-6 text-center">
+                <div className="hidden sm:visible sm:flex sm:justify-end sm:p-6 sm:text-center">
                     <Link className="m-3 bg-mylime px-2 py-2 pt-2.5 sm:shadow-l rounded-md text-xs hover:scale-105" to="/"><button>HOME</button></Link>
                     <Link className="m-3 bg-mylime px-2 py-2 pt-2.5 sm:shadow-l rounded-md text-xs hover:scale-105" to="/resources"><button>RESOURCES</button></Link>
                     <Link className="m-3 bg-mylime px-2 pt-2.5 py-2 sm:shadow-l rounded-md text-xs hover:scale-105" to="/search"><button>SEARCH</button></Link>
                     <Link className="m-3 bg-mylime px-2 py-1 pt-2 sm:shadow-l rounded-md text-xs hover:scale-105" to="/contact"><button><MdAlternateEmail size={18} /></button></Link>
                     <Link className="m-3 bg-mylime px-2 py-1 pt-2 sm:shadow-l rounded-md text-xs hover:scale-105" to="/profile"><button><FaUserCircle size={18} /></button></Link>
                     <Link className="m-3 bg-mylime px-2  py-1 pt-2 sm:shadow-l rounded-md text-xs hover:scale-105" to="/"><button onClick={handleLogout}><HiOutlineLogout size={18} /></button></Link>
+                </div>
+
+                <div class="text-center pt-5 pb-0 visible block sm:hidden">
+                    <Link className="m-3 bg-mylime px-2 py-2 pt-2.5 sm:shadow-l rounded-md text-xs hover:scale-105" to="/"><button>HOME</button></Link>
+                    <Link className="m-3 bg-mylime px-2 py-2 pt-2.5 sm:shadow-l rounded-md text-xs hover:scale-105" to="/resources"><button>RESOURCES</button></Link>
+                    <Link className="m-3 bg-mylime px-2 pt-2.5 py-2 sm:shadow-l rounded-md text-xs hover:scale-105" to="/search"><button>SEARCH</button></Link>
+                    <Link className="inline-block m-3 bg-mylime px-2 py-1 pt-2 sm:shadow-l rounded-md text-xs hover:scale-105" to="/contact"><button><MdAlternateEmail size={12} /></button></Link>
+                    <Link className="inline-block m-3 bg-mylime px-2 py-1 pt-2 sm:shadow-l rounded-md text-xs hover:scale-105" to="/profile"><button><FaUserCircle size={12} /></button></Link>
+                    <Link className="inline-block m-3 bg-mylime px-2  py-1 pt-2 sm:shadow-l rounded-md text-xs hover:scale-105" to="/"><button onClick={handleLogout}><HiOutlineLogout size={12} /></button></Link>
+                         
                 </div>
             </div>
         )
@@ -45,9 +55,9 @@ export default function Nav() {
         }
         else {
             return (
-                <div className="h-30 bg-white bg-opacity-10">
+                <div className="sm:w-screen sm:flex sm:justify-between sm:p-3 sm:py-0 px-4 py-8 mx-auto pt-3 sm:pt-0 h-30 bg-white bg-opacity-10">
                     <div>
-                        <img className=" w-[20vw] h-fit float-left p-9" src={Logo} />
+                    <img className="w-3/5 sm:flex sm:float-left m-[auto] sm:pt-8 sm:m-0 sm:w-[20vw] " src={Logo} />
                     </div>
                     <div className="flex justify-end p-6">
                         <Link className="m-3 bg-mylime px-2 py-2 pt-2.5 sm:shadow-l rounded-md text-xs hover:scale-105 " to="/"><button>HOME</button></Link>

@@ -19,7 +19,7 @@ export default function Home() {
         
         return (
             <div className="text-center">
-                <img className="w-screen" src={HeroGraphic} />
+                <img className=" hidden sm:visible sm:w-screen" src={HeroGraphic} />
                 <Search />
             </div>
         )
