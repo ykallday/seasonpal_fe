@@ -140,8 +140,8 @@ export default function Search() {
 
                     <form className="text-center h-fit p-2 bg-white" onSubmit={handleSubmit}>
                         <button className=" hover:scale-105 p-2 rounded-lg bg-pink-200" onClick={navBack}><h5 className=" text-center text-xs font-semibold uppercase">Back</h5></button>
-                        <h3 className="font-didot text-3xl my-7">Search for Seasonal Produce:</h3>
-                        <div className="p-5  px-20 border-2 border-mylime rounded-lg w-fit text-center m-[auto] my-4">
+                        <h3 className="font-didot text-xl sm:text-3xl my-7">Search for Seasonal Produce:</h3>
+                        <div className="p-5  sm:px-20 px:3 border-2 border-mylime rounded-lg w-fit text-center m-[auto] my-4">
                             <label className="text-m flex text-center" htmlFor="location"><span className="px-2"><TbCircleNumber1 size={20} /></span>SELECT YOUR LOCATION</label>
                             <select className=" rounded-sm w-auto border-2 m-2 text-center text-s"
                                 onChange={handleChange}
@@ -263,13 +263,13 @@ export default function Search() {
                     <div className="p-3 text-center bg-lightblue w-[90vw] m-[auto] h-[80vh] rounded-lg my-5 overflow-scroll">
                         <h3 className="font-light text-3xl" >What's in season: <span className="underline font-semibold">{formValues.location.toUpperCase()}</span></h3>
 
-                        <div className="grid grid-cols-3 p-8 rounded-lg w-[90vw] text-center gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 p-8 rounded-lg w-[90vw] text-center gap-4">
                             {filtered == [] ? <div className="col-span-3"><h1>Sorry! We don't have to have any search results for that.</h1></div> :
                                 filtered.map((snack) => {
                                     return (
 
-                                        <div className="w-[25vw] p-3 bg-slate-100 rounded-lg shadow-lg hover:scale-105" key={snack.id} >
-                                            <img className="p-2 h-[25vw] w-[25vw] object-cover m-auto border-4 border-gray-300" src={snack.image_url} />
+                                        <div className="w-4/5 m-[auto] sm:w-[25vw] p-3 bg-slate-100 rounded-lg shadow-lg hover:scale-105" key={snack.id} >
+                                            <img className="p-2 sm:h-[25vw] sm:w-[25vw] h-[75vw] w-[75vw] object-cover m-auto border-4 border-gray-300" src={snack.image_url} />
                                             <div className="flex justify-between">
                                                 <h1 className="text-m px-3 pt-2 font-semibold tracking-widest text-left">{snack.name}</h1>
                                                 {user && auth ? <button className="p-1 mt-2 rounded-lg bg-slate-300 hover:scale-110" onClick={() => navToNote(snack.id)}><TbNote size={20} /></button> : null}
