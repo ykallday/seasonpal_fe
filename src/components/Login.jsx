@@ -28,7 +28,7 @@ export default function Login() {
         
         <div className="text-center bg-lightblue h-[100vh] focus:shadow-xl">
             <h1 className="py-5 font-light tracking-wider text-2xl"> WELCOME BACK </h1>
-            <div className="text-center bg-white w-[30vw] m-auto my-3 rounded-xl py-3 border-2">
+            <div className="text-center bg-white w-[90vw] m-auto my-3 rounded-xl py-3 border-2">
                 <form onSubmit={handleSubmit}>
                     <div className="py-3">
                         <label className="p-3 text-s" htmlFor="username">USERNAME</label>

@@ -39,7 +39,7 @@ export default function Register() {
   return (
     <div className="text-center bg-lightblue h-[100vh] focus:shadow-xl">
       <h1 className="py-5 font-light tracking-wider text-2xl"> REGISTER </h1>
-      <div className="text-center bg-white w-[30vw] m-auto my-3 rounded-xl py-3 border-2">
+      <div className="text-center bg-white w-[90vw] m-auto my-3 rounded-xl py-3 border-2">
         <h1 className="register-welcome">
           Join Seasonpal today!
         </h1>
